@@ -1,21 +1,9 @@
 #############
-# Build
-#############
-
-FROM python:3.9.7-alpine3.14 as build
-
-# Create the initial service artifacts.
-
-
-#############
 # Base
 #############
 
-FROM python:3.9.7-alpine3.14 as base
-
-# Copy essential build artifacts for further distribution
-
-COPY --from=build /root/.local /root/.local
+FROM mcr.microsoft.com/dotnet/sdk:6.0 as base
+WORKDIR /mnt/src
 
 
 #############
@@ -24,22 +12,33 @@ COPY --from=build /root/.local /root/.local
 
 FROM base as dev
 
-# Set development environmental variables and configure a dev-specific entrypoint
+# requires a volume mount
+ENTRYPOINT ["dotnet", "watch", "run"]
+
+
+#############
+# Build
+#############
+
+FROM base as build
+COPY src .
+RUN dotnet restore && dotnet build
+RUN dotnet publish App.csproj -c Release -o /dist
 
 
 #####
 # UAT
 #####
 
-FROM base as uat
-
-# Same as dev, but uat
+FROM mcr.microsoft.com/dotnet/runtime:6.0 as uat
+COPY --from=build /dist /var/www
+ENTRYPOINT ["dotnet", "/var/www/App.dll"]
 
 
 ############
 # Production
 ############
 
-FROM base as prod
-
-# Same as uat, but prod
+FROM mcr.microsoft.com/dotnet/runtime:6.0 as prod
+COPY --from=build /dist /var/www
+ENTRYPOINT ["dotnet", "/var/www/App.dll"]

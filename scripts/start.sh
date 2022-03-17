@@ -7,11 +7,13 @@ case $ENVIRONMENT in
 
 dev)
   echo "starts local development container..."
-  docker run --rm \
+  echo "container name is ${IMAGE_NAME}"
+  echo "src path is ${CODE_SOURCE_SRC}"
+  echo "dst path is ${CODE_SOURCE_DST}"
+  echo "on exposed port ${EXPOSED_PORT}"
+  docker run --rm -it \
     --expose ${EXPOSED_PORT} -p ${EXPOSED_PORT}:${CONTAINER_PORT} \
-    -e "CONTENT_PATH=${DEV_CONTENT_PATH}" \
     -v ${CODE_SOURCE_SRC}:${CODE_SOURCE_DST} \
-    -v ${DEV_CONTENT_SRC}:${CONTENT_DST} \
     --name ${IMAGE_NAME} \
     ${USER_NAME}/${DEV_IMAGE_NAME}:${IMAGE_TYPE}
 ;;

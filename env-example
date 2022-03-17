@@ -30,7 +30,7 @@ USER_NAME=acbilson
 
 # Name of the Docker image
 # (aka acbilson/**chaos-theme-service**:alpine)
-IMAGE_NAME=chaos-theme-service
+IMAGE_NAME=chaos-tasks
 DEV_IMAGE_NAME="$IMAGE_NAME-dev"
 UAT_IMAGE_NAME="$IMAGE_NAME-uat"
 TST_IMAGE_NAME="$IMAGE_NAME-test"
@@ -44,7 +44,7 @@ CONTAINER_PORT=80
 
 # The port exposed by the service outside the container instance.
 # Adds one for uat to avoid prod/uat port conflict
-EXPOSED_PORT=3000
+EXPOSED_PORT=8500
 UAT_EXPOSED_PORT=$(expr $EXPOSED_PORT + 1)
 
 # UAT & Prod /dist path where files go for remote image builds
@@ -61,12 +61,12 @@ PRD_DIST=/mnt/msata/build/prod
 # *_DST is the Docker absolute path
 
 # Volume paths for container source code
-CODE_SOURCE_SRC=/Users/acbilson/source/chaos-theme-service/src
+CODE_SOURCE_SRC=/Users/acbilson/source/chaos-tasks/src
 CODE_SOURCE_DST=/mnt/src
 
 # Volume paths for container data
-DEV_CONTENT_SRC=/Users/acbilson/source/chaos-content
-UAT_CONTENT_SRC=/mnt/msata/source/chaos-content
+DEV_CONTENT_SRC=/Users/acbilson/source/chaos-tasks/data
+UAT_CONTENT_SRC=/mnt/msata/source/chaos-tasks/data
 PRD_CONTENT_SRC=$UAT_CONTENT_SRC
 
 CONTENT_DST=/mnt/chaos/content
