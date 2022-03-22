@@ -3,6 +3,8 @@
 #############
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 as base
+RUN apt update && apt upgrade -y
+RUN apt install todotxt-cli
 WORKDIR /mnt/src
 
 

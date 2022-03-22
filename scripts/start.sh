@@ -14,6 +14,7 @@ dev)
   docker run --rm -it \
     --expose ${EXPOSED_PORT} -p ${EXPOSED_PORT}:${CONTAINER_PORT} \
     -v ${CODE_SOURCE_SRC}:${CODE_SOURCE_DST} \
+    -v ${DEV_CONTENT_SRC}:${CONTENT_DST} \
     --name ${IMAGE_NAME} \
     ${USER_NAME}/${DEV_IMAGE_NAME}:${IMAGE_TYPE}
 ;;

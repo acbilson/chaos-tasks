@@ -1,0 +1,47 @@
+(A) prepare a March Bilson Family Update +newsletter
+(B) fork mjdescy's c# todo.txt project @tasks +suite https://github.com/mjdescy/TodoTxt.Library
+(B) review github projects for blazor ideas @blazor +learn https://github.com/CuriousDrive/BlazingChat https://github.com/JeremyLikness/PlanetaryDocs https://github.com/chrissainty/AuthenticationWithClientSideBlazor
+(C) add mobile-friendly edit functionality @tasks +suite
+(C) consume the todo.txt library to display the file results @tasks +suite
+(C) create a chaos-tasks Blazor Server app @tasks +suite
+(C) deploy todo.txt library as a NuGet package to share with a chaos-tasks Blazor Server app @tasks +suite
+(C) shrink the image a ton @tasks +suite https://itnext.io/smaller-docker-images-for-asp-net-core-apps-bee4a8fd1277
+(C) start a Blazor Server contact list app @contacts +suite
+(C) write a in-reply-to about management and leadership @content https://chrisjwilson.me/2022/01/10/managing-vs-leading.html
+(D) add a social aspect like haven +community https://github.com/havenweb/haven
+(D) add backlink script to gardens @theme +backlinks
+(D) add publish/edit web functionality @contacts +suite
+(D) add second diagram for backlink references @theme +backlinks
+(D) add shortcode snippets @micropub +writing-flow
+(D) build (or find) a journal.beancount parser (look at my own budget app first) @budget +suite
+(D) build a custom Blazor Server budget frontend @budget +suite
+(D) compose a cookbook garden with Amie's recipes @content
+(D) create a monitor service that logs results to sqlite and displays them +refactor
+(D) define a basic file type, probably copy the Hugo header plus markdown @contacts +suite
+(D) load my Google contacts @contacts +suite
+(E) add a flash when a post is published @micropub +writing-flow
+(E) add healthchecks to podman services @micropub @webhook
+(E) add logout and clear session @micropub +security
+(E) add unit tests for budget importers @budget
+(E) authenticate my services behind vouch-proxy @proxy +security
+(E) auto-send WebMention on form submission @micropub +writing-flow
+(E) configure Wireguard to grant access to private services @proxy +security +learn
+(E) consider how I might replace tags/backlinks with chips for both create and edit @micropub
+(E) consider using redis to cache file info for faster editing @micropub +refactor
+(E) convert site to progressive web app (PWA) @theme +learn
+(E) create a VueJS form to authenticate and add posts @micropub +refactor
+(E) create web component using tonic-panel to load an the edit page next to its original content. To include this panel on the page, hit a new /authorized endpoint on micropub @theme +learn
+(E) enable PWA notifications @theme +learn https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Re-engageable_Notifications_Push
+(E) explore how to verify hugo can build a log before publishing @micropub +writing-flow
+(E) investigate building micropub ui with esBuild and using a stepper for the select-edit flow. this would mean going full SPA @micropub +learn
+(E) migrate the newest chaos-template build setup to all repos +refactor
+(E) pre-build lunr index, prob. just json file, for faster searching @theme https://lunrjs.com/guides/index_prebuilding.html
+(E) research how to embed a video from OneDrive @content https://www.computerhope.com/issues/ch000591.htm
+(E) rewrite micropub in golang (see Colelyman/gozette) @micropub
+(E) standardize repo licenses on MIT +refactor
+(E) sync .service files back to repos @proxy +refactor
+(E) turn stones into a list like plants @theme +refactor
+(E) update all repo README files +refactor
+(E) write a post for letterstoanewdeveloper.com, perhaps on the subject of self-hosting, knowledge-sharing, or another general topic @content
+(Z) CONTEXTS @micropub @webhook @budget @proxy @theme @content @blazor @tasks @contacts
+(Z) PROJECTS +newsletter +writing-flow +refactor +backlinks +security +drawing +learn +community +suite
