@@ -1,21 +1,39 @@
 namespace ChaosTasks.Tests;
 
+using System;
+using System.IO;
 using NUnit.Framework;
 using ChaosTasks.Data;
 
 public class TodoFileParserTests
 {
-    [SetUp]
-    public void Setup()
-    {
-    }
+  private TodoParserService parser;
+  private string[] lines;
 
-    [Test]
-    public void LoadsData()
-    {
-      var parser = new TodoFileParser("/Users/acbilson/source/chaos-tasks/src/Tests/data");
-      var result = parser.ReadLines("basic.txt");
-      Assert.True(result.Success, result.Message);
-      Assert.Greater(result.Lines.Length, 0);
-    }
+  [SetUp]
+  public void Setup()
+  {
+    this.parser = new TodoParserService();
+    this.lines = File.ReadAllLines(@"/Users/acbilson/source/chaos-tasks/Tests/data/basic.txt");
+  }
+
+  [TearDown]
+  public void TearDown()
+  {
+    this.parser = null;
+    this.lines = null;
+  }
+
+  [Test]
+  public void LoadsData()
+  {
+    var todoList = this.parser.ToTodoList(this.lines);
+    Assert.Greater(todoList.Count, 0);
+    Console.WriteLine("Testing raw strings");
+    todoList.ForEach(todo => Console.WriteLine(todo.Raw));
+    todoList.ForEach(todo => Console.WriteLine(todo.Text));
+    todoList.ForEach(todo => Console.WriteLine(todo.Priority));
+    todoList.ForEach(todo => Console.WriteLine(string.Join(',', todo.Projects)));
+    todoList.ForEach(todo => Console.WriteLine(string.Join(',', todo.Contexts)));
+  }
 }
