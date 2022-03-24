@@ -12,6 +12,8 @@ dev)
   echo "dst path is ${CODE_SOURCE_DST}"
   echo "on exposed port ${EXPOSED_PORT}"
   docker run --rm -it \
+    -e "ASPNETCORE_ENVIRONMENT=Development" \
+    -e "ASPNETCORE_URLS=http://+:5000" \
     --expose ${EXPOSED_PORT} -p ${EXPOSED_PORT}:${CONTAINER_PORT} \
     -v ${CODE_SOURCE_SRC}:${CODE_SOURCE_DST} \
     -v ${DEV_CONTENT_SRC}:${CONTENT_DST} \

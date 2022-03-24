@@ -3,7 +3,13 @@ using Microsoft.AspNetCore.Components.Web;
 using ChaosTasks.Data;
 using ChaosTasks.Services;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(new WebApplicationOptions {
+  Args = args,
+  WebRootPath = "/var/www/wwwroot"
+});
+
+System.Console.WriteLine($"WebRoot: {builder.Environment.WebRootPath}");
+builder.Environment.WebRootPath = "";
 
 // Add services to the container.
 builder.Services.AddRazorPages();
@@ -18,7 +24,6 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
 }
-
 
 app.UseStaticFiles();
 
