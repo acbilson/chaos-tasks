@@ -51,10 +51,7 @@ uat)
 
 prod)
   echo "copies template files..."
-  mkdir -p dist/dist && \
-    cp template/build-site.sh dist/dist/build-site.sh && \
-    envsubst < template/micropub.ini > dist/dist/micropub.ini && \
-    envsubst < template/container-${IMAGE_NAME}.service > dist/container-${IMAGE_NAME}.service
+  mkdir -p dist/dist
 
   echo "copies files to distribute..."
   cp Dockerfile dist/
@@ -66,6 +63,7 @@ prod)
   scp -r dist ${PROD_HOST}:${PRD_DIST}
 
   echo "builds image on production"
+
   ssh -t ${PROD_HOST} \
     sudo podman build \
       -f ${PRD_DIST}/Dockerfile \

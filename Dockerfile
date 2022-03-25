@@ -26,14 +26,14 @@ ENTRYPOINT ["dotnet", "watch", "run"]
 FROM base as build
 COPY src .
 RUN dotnet restore && dotnet build
-RUN dotnet publish ChaosTasks.csproj --runtime alpine-x64 --self-contained true -c Release -o /dist
+RUN dotnet publish ChaosTasks.csproj --runtime linux-arm --self-contained true -c Release -o /dist
 
 
 #####
 # UAT
 #####
 
-FROM mcr.microsoft.com/dotnet/runtime:6.0-alpine3.15 as uat
+FROM mcr.microsoft.com/dotnet/runtime:6.0-alpine3.15-arm32v7 as uat
 COPY --from=build /dist /var/www
 ENTRYPOINT ["dotnet", "/var/www/ChaosTasks.dll"]
 
@@ -42,6 +42,6 @@ ENTRYPOINT ["dotnet", "/var/www/ChaosTasks.dll"]
 # Production
 ############
 
-FROM mcr.microsoft.com/dotnet/runtime:6.0-alpine3.15 as prod
+FROM mcr.microsoft.com/dotnet/6.0-alpine3.15-arm32v7 as prod
 COPY --from=build /dist /var/www
 ENTRYPOINT ["dotnet", "/var/www/ChaosTasks.dll"]
