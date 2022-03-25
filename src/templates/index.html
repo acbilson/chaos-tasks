@@ -7,6 +7,47 @@
     <title>Go Template</title>
 
     <style>
+      #filter {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        height: 24px;
+      }
+
+      .chip:hover {
+        cursor: pointer;
+      }
+
+      .chip {
+        background-color: grey;
+        color: white;
+        border-radius: 9px;
+        padding: 3px;
+      }
+
+      .chip + .chip {
+        margin-left: 9px;
+      }
+
+      span:hover {
+        cursor: copy;
+      }
+
+      .filter {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      .filter label {
+        padding-right: 9px;
+      }
+
+      ul {
+        list-style: none;
+        padding-left: 0;
+      }
 
       li .priority {
         color: red;
@@ -24,11 +65,65 @@
 </head>
 
 <body>
-  <ul>
+  <div class="filter">
+    <label for="filter">Filter:</label>
+    <div id="filter" name="filter"></div>
+  </div>
+  <ul id="todo-list">
   {{ range .List }}
-    <li>(<span class="priority">{{ .Priority }}</span>) {{ .Text }} <span class="projects">{{ range .Projects }} +{{ . }}{{ end }}</span><span class="contexts">{{ range .Contexts }} @{{ . }}{{ end }}</span></li>
+    <li><span class="priority">({{ .Priority }})</span> {{ .Text }} {{ range .Projects }}<span class="projects"> +{{ . }}</span>{{ end }}{{ range .Contexts }}<span class="contexts"> @{{ . }}</span>{{ end }}</li>
   {{ end }}
   </ul>
-</body>
+  <script>
+  (function something() {
+    // handles click events on the todo list
+    document.getElementById('todo-list').addEventListener('click', (e) => {
 
+      // only applies when a span is clicked
+      if (e.target.tagName !== 'SPAN') { return; }
+
+      // gets clicked and all chip words
+      const clickedWord = e.target.innerText.trim();
+      const words = [clickedWord];
+      document.querySelectorAll('#filter>div').forEach(el => {
+        words.push(el.innerText);
+      });
+
+      // hides all lines without the selected words
+      document.querySelectorAll('#todo-list>li').forEach(li => {
+        if (!words.every(w => li.innerHTML.includes(w))) { li.hidden = true; }
+      });
+
+      // adds clicked text chip
+      const chip = document.createElement('div');
+      chip.classList = ['chip'];
+      chip.innerText = clickedWord;
+      document.getElementById('filter').appendChild(chip);
+    });
+
+    // handles clicks on the filter chips
+    document.getElementById('filter').addEventListener('click', (e) => {
+      document.getElementById('filter').removeChild(e.target);
+
+      // gets remaining chip words
+      const words = [];
+      document.querySelectorAll('#filter>div').forEach(el => {
+        words.push(el.innerText);
+      });
+
+      // unhides all words for a fresh filter
+      document.querySelectorAll('#todo-list>li').forEach(li => {
+        li.hidden = false;
+      });
+
+      // hides all lines without the selected words
+      if (words.length > 0) {
+        document.querySelectorAll('#todo-list>li').forEach(li => {
+          if (!words.every(w => li.innerHTML.includes(w))) { li.hidden = true; }
+        });
+      }
+    });
+  })();
+  </script>
+</body>
 </html>
