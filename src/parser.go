@@ -21,10 +21,14 @@ func parseTodoLine(line string) (Todo, error) {
     return !contains(filtered, t)
   })
 
+  trimParens := func(t string) string {
+    if !isEmpty(t) { return t[1:2] }
+    return t
+  }
   trimFirst := func(t string) string { return t[1:] }
   return Todo{
     Raw: line,
-    Priority: priority[1:2],
+    Priority: trimParens(priority),
     Projects: mapTo(projects, trimFirst),
     Contexts: mapTo(contexts, trimFirst),
     Text: strings.Join(textTokens, " "),

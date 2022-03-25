@@ -1,5 +1,9 @@
 package main
 
+import (
+	"strings"
+)
+
 func mapTo(args []string, mapFunc func(string) string) []string {
   for i := 0; i < len(args); i = i+1 {
       args[i] = mapFunc(args[i])
@@ -55,4 +59,8 @@ func where(args []string, matchFunc func(string) bool) []string {
     }
   }
   return matches
+}
+
+func isEmpty(text string) bool {
+  return strings.TrimSpace(text) == ""
 }

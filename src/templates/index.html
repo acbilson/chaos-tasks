@@ -69,6 +69,11 @@
     <label for="filter">Filter:</label>
     <div id="filter" name="filter"></div>
   </div>
+  <!-- submits form data in query string to the same route -->
+  <form>
+    <input type="text" name="t" method="get" />
+    <button type="submit">Add</button>
+  </form>
   <ul id="todo-list">
   {{ range .List }}
     <li><span class="priority">({{ .Priority }})</span> {{ .Text }} {{ range .Projects }}<span class="projects"> +{{ . }}</span>{{ end }}{{ range .Contexts }}<span class="contexts"> @{{ . }}</span>{{ end }}</li>
