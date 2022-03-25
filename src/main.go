@@ -11,20 +11,21 @@ const (
 	Port = "8080"
 )
 
-type Student struct {
-	Name       string
-	College    string
-	RollNumber int
+type TodoList struct {
+	List []Todo
 }
 
 func renderTemplate(w http.ResponseWriter, r *http.Request) {
-	student := Student{
-		Name:       "GB",
-		College:    "GolangBlogs",
-		RollNumber: 1,
-	}
+  todos, ferr := readTodo("data/todo.txt")
+  if ferr != nil {
+    log.Println("Error reading file: ", ferr)
+  }
+  content := TodoList{
+    List: todos,
+  }
+
 	parsedTemplate, _ := template.ParseFiles("templates/index.html")
-	err := parsedTemplate.Execute(w, student)
+	err := parsedTemplate.Execute(w, content)
 	if err != nil {
 		log.Println("Error executing template :", err)
 		return
