@@ -7,8 +7,8 @@ import (
 )
 
 const (
-	Host = "localhost"
-	Port = "8080"
+	Host = "0.0.0.0"
+	Port = "5000"
 )
 
 type TodoList struct {

@@ -65,15 +65,16 @@ redeploy: stop-uat build-uat deploy-uat ## stops, builds, and deploys a new prod
 
 .PHONY: clean-prod
 clean-prod: clean ## cleans remnants of the build process on the production machine
-	. ./scripts/clean.sh prod
+	#. ./scripts/clean.sh prod
 
 .PHONY: start-prod
 start-prod: ## builds a remote production Docker image
-	docker run --rm -it -p 5000:5000 -e "ASPNETCORE_ENVIRONMENT=Production" -e "ASPNETCORE_URLS=http://+:5000" -v /Users/acbilson/source/chaos-tasks/src:/src --name test acbilson/chaos-tasks:alpine
+	docker run --rm -it -p 5000:5000 --name chaos-tasks acbilson/chaos-tasks:alpine
 
 .PHONY: build-prod
 build-prod: clean-prod ## builds a remote production Docker image
-	. ./scripts/build.sh prod
+	#. ./scripts/build.sh prod
+	docker build --target=prod -t acbilson/chaos-tasks:alpine .
 
 .PHONY: deploy
 deploy: ## deploys the remote production Docker image

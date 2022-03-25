@@ -2,11 +2,8 @@
 # Base
 #############
 
-FROM mcr.microsoft.com/dotnet/sdk:6.0 as base
-RUN apt update && apt upgrade -y
-RUN apt install todotxt-cli
+FROM golang:alpine3.14 as base
 WORKDIR /mnt/src
-EXPOSE 5000
 
 
 #############
@@ -16,7 +13,7 @@ EXPOSE 5000
 FROM base as dev
 
 # requires a volume mount
-ENTRYPOINT ["dotnet", "watch", "run"]
+ENTRYPOINT ["go", "run", "."]
 
 
 #############
@@ -25,23 +22,21 @@ ENTRYPOINT ["dotnet", "watch", "run"]
 
 FROM base as build
 COPY src .
-RUN dotnet restore && dotnet build
-RUN dotnet publish ChaosTasks.csproj --runtime linux-arm --self-contained true -c Release -o /dist
+RUN go version && go install
+ENTRYPOINT ["tail", "-f", "/dev/null"]
 
 
 #####
 # UAT
 #####
 
-FROM mcr.microsoft.com/dotnet/runtime:6.0-alpine3.15-arm32v7 as uat
-COPY --from=build /dist /var/www
-ENTRYPOINT ["dotnet", "/var/www/ChaosTasks.dll"]
+FROM build as uat
+ENTRYPOINT ["/go/bin/server"]
 
 
 ############
 # Production
 ############
 
-FROM mcr.microsoft.com/dotnet/6.0-alpine3.15-arm32v7 as prod
-COPY --from=build /dist /var/www
-ENTRYPOINT ["dotnet", "/var/www/ChaosTasks.dll"]
+FROM build as prod
+ENTRYPOINT ["/go/bin/server"]
