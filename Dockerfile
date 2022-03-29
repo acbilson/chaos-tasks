@@ -23,20 +23,23 @@ ENTRYPOINT ["go", "run", "."]
 FROM base as build
 COPY src .
 RUN go version && go install
-ENTRYPOINT ["tail", "-f", "/dev/null"]
 
 
 #####
 # UAT
 #####
 
-FROM build as uat
-ENTRYPOINT ["/go/bin/server"]
+FROM alpine:3.15 as uat
+COPY --from=build /mnt/src/templates /etc/chaos-tasks/templates
+COPY --from=build /go/bin/server /usr/local/bin/server
+ENTRYPOINT ["/usr/local/bin/server"]
 
 
 ############
 # Production
 ############
 
-FROM build as prod
-ENTRYPOINT ["/go/bin/server"]
+FROM alpine:3.15 as prod
+COPY --from=build /mnt/src/templates /etc/chaos-tasks/templates
+COPY --from=build /go/bin/server /usr/local/bin/server
+ENTRYPOINT ["/usr/local/bin/server"]

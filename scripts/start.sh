@@ -8,9 +8,9 @@ case $ENVIRONMENT in
 dev)
   echo "starts local development container..."
   echo "container name is ${IMAGE_NAME}"
-  echo "src path is ${CODE_SOURCE_SRC}"
-  echo "dst path is ${CODE_SOURCE_DST}"
-  echo "on exposed port ${EXPOSED_PORT}"
+  echo "code resides... src: ${CODE_SOURCE_SRC} and dst: ${CODE_SOURCE_DST}"
+  echo "content resides... src: ${DEV_CONTENT_SRC} and dst: ${CONTENT_DST}"
+  echo "on exposed port ${EXPOSED_PORT} and container port ${CONTAINER_PORT}"
   docker run --rm -it \
     --expose ${EXPOSED_PORT} -p ${EXPOSED_PORT}:${CONTAINER_PORT} \
     -v ${CODE_SOURCE_SRC}:${CODE_SOURCE_DST} \

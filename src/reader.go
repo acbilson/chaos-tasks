@@ -6,6 +6,10 @@ import (
 )
 
 func readTodo(path string) ([]Todo, error) {
+  if _, err := os.Stat(path); os.IsNotExist(err) {
+    return nil, err
+  }
+
   file, err := os.Open(path)
   if err != nil {
   return nil, err
@@ -13,7 +17,7 @@ func readTodo(path string) ([]Todo, error) {
   defer file.Close()
 
   // TODO: could I determine size beforehand?
-	todoList := make([]Todo, 0)
+  todoList := make([]Todo, 0)
   scanner := bufio.NewScanner(file)
   for scanner.Scan() {
     todo, _ := parseTodoLine(scanner.Text())

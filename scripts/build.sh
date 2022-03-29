@@ -9,9 +9,7 @@ dev)
   # any files included in the container are moved into the /dist
   # folder. This allows the files to be templated with .env variables.
   echo "copies template files..."
-  mkdir dist && \
-    cp template/build-site.sh dist/build-site.sh && \
-    envsubst < template/micropub.ini > dist/micropub.ini
+  mkdir dist
 
   echo "builds development image..."
   docker build -f Dockerfile \

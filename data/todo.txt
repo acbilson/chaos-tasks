@@ -1,12 +1,25 @@
+(A) order Mac battery (see phone image)
+(A) plan going away party in the summer @sd-move +loose-ends
 (A) prepare a March Bilson Family Update +newsletter
-(B) fork mjdescy's c# todo.txt project @tasks +suite https://github.com/mjdescy/TodoTxt.Library
-(B) review github projects for blazor ideas @blazor +learn https://github.com/CuriousDrive/BlazingChat https://github.com/JeremyLikness/PlanetaryDocs https://github.com/chrissainty/AuthenticationWithClientSideBlazor
+(B) abstract chaos-tasks to use many todo files across version-controlled folders @tasks +suite
+(B) limit priority A tasks to a total of three @tasks +suite
+(B) make list of people to invite to going away party @sd-move +loose-ends
+(B) reserve a table at a Michelin restaurant for Amie's birthday
+(B) schedule board meeting for end of March @sd-move +serve-condo
+(B) select a park to host going away party  @sd-move +loose-ends
+(B) upgrade miniflux +refactor
 (C) add mobile-friendly edit functionality @tasks +suite
-(C) consume the todo.txt library to display the file results @tasks +suite
-(C) create a chaos-tasks Blazor Server app @tasks +suite
-(C) deploy todo.txt library as a NuGet package to share with a chaos-tasks Blazor Server app @tasks +suite
-(C) shrink the image a ton @tasks +suite https://itnext.io/smaller-docker-images-for-asp-net-core-apps-bee4a8fd1277
-(C) start a Blazor Server contact list app @contacts +suite
+(C) after speaking with Bob, email owners about the state of the board @sd-move +serve-condo
+(C) ask Amie how to help fix and pay our condo taxes @sd-move +sell-condo
+(C) contact Rachel and Dimitri for meet-up @sd-move +serve-condo
+(C) find a replacement for my cracked Android phone +tech
+(C) purchase another laptop, probably a M1 Mackbook Air +tech
+(C) review condo projects to decide if I must complete any before we move @sd-move +serve-condo
+(C) schedule call with Arthur to personally ask for his commitment after owner email @sd-move +serve-condo
+(C) send email with board member roles before the March board meeting @sd-move +serve-condo
+(C) speak frankly with Tom about finding a successor before I leave @sd-move +serve-condo
+(C) start a contact list app @contacts +suite
+(C) update budget to estimate current living expenses @sd-move +loose-ends
 (C) write a in-reply-to about management and leadership @content https://chrisjwilson.me/2022/01/10/managing-vs-leading.html
 (D) add a social aspect like haven +community https://github.com/havenweb/haven
 (D) add backlink script to gardens @theme +backlinks
@@ -19,23 +32,31 @@
 (D) create a monitor service that logs results to sqlite and displays them +refactor
 (D) define a basic file type, probably copy the Hugo header plus markdown @contacts +suite
 (D) load my Google contacts @contacts +suite
+(D) replace Amie's phone +tech
+(D) speak with realtor about what kind of home we want @sd-move +buy-condo
 (E) add a flash when a post is published @micropub +writing-flow
 (E) add healthchecks to podman services @micropub @webhook
 (E) add logout and clear session @micropub +security
 (E) add unit tests for budget importers @budget
+(E) ask Jaynne to help us drive our stuff to SD @sd-move +loose-ends
 (E) authenticate my services behind vouch-proxy @proxy +security
 (E) auto-send WebMention on form submission @micropub +writing-flow
 (E) configure Wireguard to grant access to private services @proxy +security +learn
 (E) consider how I might replace tags/backlinks with chips for both create and edit @micropub
 (E) consider using redis to cache file info for faster editing @micropub +refactor
+(E) contact lawyer through work service about will @sd-move +loose-ends
 (E) convert site to progressive web app (PWA) @theme +learn
 (E) create a VueJS form to authenticate and add posts @micropub +refactor
 (E) create web component using tonic-panel to load an the edit page next to its original content. To include this panel on the page, hit a new /authorized endpoint on micropub @theme +learn
+(E) decide what's left to add to the FAQ @sd-move +serve-condo
 (E) enable PWA notifications @theme +learn https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Re-engageable_Notifications_Push
 (E) explore how to verify hugo can build a log before publishing @micropub +writing-flow
+(E) gather all keys into the boiler room @sd-move +serve-condo
+(E) identify a person to own the condo gmail account @sd-move +serve-condo
 (E) investigate building micropub ui with esBuild and using a stepper for the select-edit flow. this would mean going full SPA @micropub +learn
 (E) migrate the newest chaos-template build setup to all repos +refactor
 (E) pre-build lunr index, prob. just json file, for faster searching @theme https://lunrjs.com/guides/index_prebuilding.html
+(E) prepare the condo gmail account for new ownership @sd-move +serve-condo
 (E) research how to embed a video from OneDrive @content https://www.computerhope.com/issues/ch000591.htm
 (E) rewrite micropub in golang (see Colelyman/gozette) @micropub
 (E) standardize repo licenses on MIT +refactor
@@ -44,4 +65,6 @@
 (E) update all repo README files +refactor
 (E) write a post for letterstoanewdeveloper.com, perhaps on the subject of self-hosting, knowledge-sharing, or another general topic @content
 (Z) CONTEXTS @micropub @webhook @budget @proxy @theme @content @blazor @tasks @contacts
+(Z) CONTEXTS @sd-move
 (Z) PROJECTS +newsletter +writing-flow +refactor +backlinks +security +drawing +learn +community +suite
+(Z) PROJECTS +transition +loose-ends +serve-condo +sell-condo +buy-condo +tech

@@ -2,9 +2,10 @@
 <html lang="en">
 
 <head>
+    <title>Chaos Tasks</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Go Template</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <style>
       #filter {
@@ -75,7 +76,7 @@
     <button type="submit">Add</button>
   </form>
   <ul id="todo-list">
-  {{ range .List }}
+  {{ range . }}
     <li><span class="priority">({{ .Priority }})</span> {{ .Text }} {{ range .Projects }}<span class="projects"> +{{ . }}</span>{{ end }}{{ range .Contexts }}<span class="contexts"> @{{ . }}</span>{{ end }}</li>
   {{ end }}
   </ul>
