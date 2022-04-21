@@ -2,6 +2,7 @@ package main
 
 import (
 	"strings"
+  "log"
 )
 
 func parseTodoLine(line string) (Todo, error) {

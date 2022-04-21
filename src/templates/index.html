@@ -77,7 +77,7 @@
   </form>
   <ul id="todo-list">
   {{ range . }}
-    <li><span class="priority">({{ .Priority }})</span> {{ .Text }} {{ range .Projects }}<span class="projects"> +{{ . }}</span>{{ end }}{{ range .Contexts }}<span class="contexts"> @{{ . }}</span>{{ end }}</li>
+    <li>{{ if ne .Priority "" }}<span class="priority">({{ .Priority }})</span> {{ end }}{{ .Text }} {{ range .Projects }}<span class="projects"> +{{ . }}</span>{{ end }}{{ range .Contexts }}<span class="contexts"> @{{ . }}</span>{{ end }}</li>
   {{ end }}
   </ul>
   <script>

@@ -34,36 +34,36 @@
 (D) load my Google contacts @contacts +suite
 (D) replace Amie's phone +tech
 (D) speak with realtor about what kind of home we want @sd-move +buy-condo
-(E) add a flash when a post is published @micropub +writing-flow
-(E) add healthchecks to podman services @micropub @webhook
-(E) add logout and clear session @micropub +security
-(E) add unit tests for budget importers @budget
-(E) ask Jaynne to help us drive our stuff to SD @sd-move +loose-ends
-(E) authenticate my services behind vouch-proxy @proxy +security
-(E) auto-send WebMention on form submission @micropub +writing-flow
-(E) configure Wireguard to grant access to private services @proxy +security +learn
-(E) consider how I might replace tags/backlinks with chips for both create and edit @micropub
-(E) consider using redis to cache file info for faster editing @micropub +refactor
-(E) contact lawyer through work service about will @sd-move +loose-ends
-(E) convert site to progressive web app (PWA) @theme +learn
-(E) create a VueJS form to authenticate and add posts @micropub +refactor
-(E) create web component using tonic-panel to load an the edit page next to its original content. To include this panel on the page, hit a new /authorized endpoint on micropub @theme +learn
-(E) decide what's left to add to the FAQ @sd-move +serve-condo
-(E) enable PWA notifications @theme +learn https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Re-engageable_Notifications_Push
-(E) explore how to verify hugo can build a log before publishing @micropub +writing-flow
-(E) gather all keys into the boiler room @sd-move +serve-condo
-(E) identify a person to own the condo gmail account @sd-move +serve-condo
-(E) investigate building micropub ui with esBuild and using a stepper for the select-edit flow. this would mean going full SPA @micropub +learn
-(E) migrate the newest chaos-template build setup to all repos +refactor
-(E) pre-build lunr index, prob. just json file, for faster searching @theme https://lunrjs.com/guides/index_prebuilding.html
-(E) prepare the condo gmail account for new ownership @sd-move +serve-condo
-(E) research how to embed a video from OneDrive @content https://www.computerhope.com/issues/ch000591.htm
-(E) rewrite micropub in golang (see Colelyman/gozette) @micropub
-(E) standardize repo licenses on MIT +refactor
-(E) sync .service files back to repos @proxy +refactor
-(E) turn stones into a list like plants @theme +refactor
-(E) update all repo README files +refactor
-(E) write a post for letterstoanewdeveloper.com, perhaps on the subject of self-hosting, knowledge-sharing, or another general topic @content
+add a flash when a post is published @micropub +writing-flow
+add healthchecks to podman services @micropub @webhook
+add logout and clear session @micropub +security
+add unit tests for budget importers @budget
+ask Jaynne to help us drive our stuff to SD @sd-move +loose-ends
+authenticate my services behind vouch-proxy @proxy +security
+auto-send WebMention on form submission @micropub +writing-flow
+configure Wireguard to grant access to private services @proxy +security +learn
+consider how I might replace tags/backlinks with chips for both create and edit @micropub
+consider using redis to cache file info for faster editing @micropub +refactor
+contact lawyer through work service about will @sd-move +loose-ends
+convert site to progressive web app (PWA) @theme +learn
+create a VueJS form to authenticate and add posts @micropub +refactor
+create web component using tonic-panel to load an the edit page next to its original content. To include this panel on the page, hit a new /authorized endpoint on micropub @theme +learn
+decide what's left to add to the FAQ @sd-move +serve-condo
+enable PWA notifications @theme +learn https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Re-engageable_Notifications_Push
+explore how to verify hugo can build a log before publishing @micropub +writing-flow
+gather all keys into the boiler room @sd-move +serve-condo
+identify a person to own the condo gmail account @sd-move +serve-condo
+investigate building micropub ui with esBuild and using a stepper for the select-edit flow. this would mean going full SPA @micropub +learn
+migrate the newest chaos-template build setup to all repos +refactor
+pre-build lunr index, prob. just json file, for faster searching @theme https://lunrjs.com/guides/index_prebuilding.html
+prepare the condo gmail account for new ownership @sd-move +serve-condo
+research how to embed a video from OneDrive @content https://www.computerhope.com/issues/ch000591.htm
+rewrite micropub in golang (see Colelyman/gozette) @micropub
+standardize repo licenses on MIT +refactor
+sync .service files back to repos @proxy +refactor
+turn stones into a list like plants @theme +refactor
+update all repo README files +refactor
+write a post for letterstoanewdeveloper.com, perhaps on the subject of self-hosting, knowledge-sharing, or another general topic @content
 (Z) CONTEXTS @micropub @webhook @budget @proxy @theme @content @blazor @tasks @contacts
 (Z) CONTEXTS @sd-move
 (Z) PROJECTS +newsletter +writing-flow +refactor +backlinks +security +drawing +learn +community +suite
