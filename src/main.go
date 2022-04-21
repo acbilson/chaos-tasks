@@ -23,7 +23,7 @@ func renderTodoList(w http.ResponseWriter, r *http.Request) {
   } else {
     if text := r.Form.Get("t"); !isEmpty(text) {
       log.Println("writing to todo file")
-      if err := appendTodo(path, r.Form.Get("t")); err != nil {
+      if err := appendTodo(path, text); err != nil {
         log.Println("Error writing file: ", err)
 	w.WriteHeader(http.StatusInternalServerError)
       } else {

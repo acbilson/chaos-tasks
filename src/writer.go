@@ -11,7 +11,7 @@ func appendTodo(path string, text string) error {
   }
   defer file.Close()
 
-  _, werr := file.WriteString(text)
+  _, werr := file.WriteString(text + "\n")
 
   if werr != nil {
     return werr
