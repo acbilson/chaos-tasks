@@ -44,8 +44,8 @@ func renderTodoList(w http.ResponseWriter, r *http.Request) {
   sort.Sort(TodoList(todos))
 
   log.Println("Parsing template file...")
-  // production: parsedTemplate, _ := template.ParseFiles("/etc/chaos-tasks/templates/index.html")
-  parsedTemplate, _ := template.ParseFiles("/mnt/src/templates/index.html")
+  parsedTemplate, _ := template.ParseFiles("/etc/chaos-tasks/templates/index.html")
+  // development: parsedTemplate, _ := template.ParseFiles("/mnt/src/templates/index.html")
   if err := parsedTemplate.Execute(w, todos); err != nil {
     log.Println("Error executing template :", err)
     w.WriteHeader(http.StatusInternalServerError)
