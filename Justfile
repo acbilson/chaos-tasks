@@ -1,6 +1,6 @@
 # builds a production-ready podman image
 build:
-	sudo podman build --target=prod -t acbilson/tasks:alpine .
+	podman build --target=prod -t acbilson/tasks:alpine .
 
 # restarts the systemd service
 restart:
