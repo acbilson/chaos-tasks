@@ -38,7 +38,7 @@ ENTRYPOINT ["/usr/local/bin/server"]
 # Production
 ############
 
-FROM docker.io/library/alpine:3.15.4 as uat
+FROM docker.io/library/alpine:3.15.4 as prod
 COPY --from=build /mnt/src/templates /etc/chaos-tasks/templates
 COPY --from=build /go/bin/server /usr/local/bin/server
 ENTRYPOINT ["/usr/local/bin/server"]
