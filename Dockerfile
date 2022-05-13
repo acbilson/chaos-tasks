@@ -1,8 +1,7 @@
 #############
 # Base
 #############
-
-FROM golang:alpine3.14 as base
+FROM docker.io/library/golang:1.18.2-alpine3.15 as base
 WORKDIR /mnt/src
 
 
@@ -29,7 +28,7 @@ RUN go version && go install
 # UAT
 #####
 
-FROM alpine:3.15 as uat
+FROM docker.io/library/alpine:3.15.4 as uat
 COPY --from=build /mnt/src/templates /etc/chaos-tasks/templates
 COPY --from=build /go/bin/server /usr/local/bin/server
 ENTRYPOINT ["/usr/local/bin/server"]
@@ -39,7 +38,7 @@ ENTRYPOINT ["/usr/local/bin/server"]
 # Production
 ############
 
-FROM alpine:3.15 as prod
+FROM docker.io/library/alpine:3.15.4 as uat
 COPY --from=build /mnt/src/templates /etc/chaos-tasks/templates
 COPY --from=build /go/bin/server /usr/local/bin/server
 ENTRYPOINT ["/usr/local/bin/server"]
