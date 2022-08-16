@@ -1,10 +1,18 @@
-# builds a production-ready podman image
+set dotenv-load
+
+# builds a development docker image.
 build:
-	podman build --target=prod -t acbilson/tasks:alpine .
+  COMMIT_ID=$(git rev-parse --short HEAD); \
+  docker build \
+  --target dev \
+  -t acbilson/tasks:latest \
+  -t acbilson/tasks:${COMMIT_ID} .
 
-# restarts the systemd service
-restart:
-	systemctl --user restart container-tasks.service
-
-# builds a production-ready podman image
-redeploy: build restart
+# starts a development docker image.
+start:
+	docker run --rm -it \
+	--expose ${EXPOSED_PORT} -p ${EXPOSED_PORT}:5000 \
+	-v ${SOURCE_SRC}:/mnt/src \
+	-v ${CONTENT_SRC}:/mnt/data \
+	--name tasks \
+	acbilson/tasks:latest
